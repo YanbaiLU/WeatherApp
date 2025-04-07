@@ -1,0 +1,43 @@
+<!-- <app-progress-bar></app-progress-bar> -->
+<!--<p>result params: lat: {{this.lat}} / lng: {{this.lng}} / display: {{this.isVisible}} /-->
+<!--  rightInput: {{this.isCorrect}}</p>-->
+
+<div *ngIf=this.isVisible>
+  <div *ngIf="this.isCorrect; else wrongInput" class="container my-4">
+    <h3 class="text-center">Forecast at {{this.city}}, {{this.state}}</h3>
+
+    <div class="d-flex flex-column">
+      <div class="d-flex flex-row-reverse">
+        <a href="#">Details</a>
+        <i class="bi bi-star"></i>
+      </div>
+      <div class="d-flex flex-row-reverse">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              [routerLink]="['/result/day-view']"
+              routerLinkActive="active"
+              [queryParams]="{lat: this.lat,lng: this.lng, isVisible: true, isCorrect: true}"
+              (click)="stayStillforView()"
+            >Day view</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="result/day-temp-chart" routerLinkActive="active">Daily Temp. Chart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="result/metegram" routerLinkActive="active">Meteogram</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <ng-template #wrongInput>
+    <div class="container my-3 alert alert-danger" role="alert">
+      An error occured. Please try again later.
+    </div>
+  </ng-template>
+</div>

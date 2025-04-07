@@ -1,0 +1,9 @@
+<div class="container px-5 mx-auto">
+  <div *ngIf="isVisible" class="progress my-5" style="max-height: 15px">
+    <div style="width: 50%" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         [style.width.%]="progress" [attr.aria-valuenow]="progress"
+         aria-valuemin="0" aria-valuemax="100">
+      {{ progress | number:'1.0-0' }}%
+    </div>
+  </div>
+</div>

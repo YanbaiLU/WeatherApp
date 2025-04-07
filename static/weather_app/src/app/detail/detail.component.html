@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <button class="btn btn-light" (click)="backToList()"><i class="bi bi-chevron-left"></i> List</button>
+    <h4>{{item[item.length - 1]}}</h4>
+    <a class="twitter-share-button border border-secondary rounded-1"
+       href="https://twitter.com/intent/tweet?text={{this.xPost}}&hashtags=CSCI571WeatherSearch"
+       target="_blank"
+    >
+      <div class="p-1"><img src="/twitter-x.svg" alt="twitter-x"></div>
+    </a>
+  </div>
+
+  <table class="table table-bordered mt-3 table-striped " style="table-layout: fixed;">
+    <tbody>
+    <tr [ngClass]="{'bg-light': i % 2 === 0}" *ngFor="let row of weatherData; let i = index">
+      <th scope="row">{{ row.label }}</th>
+      <td>{{ row.value }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="my-2 ">
+    <google-map
+      width="100%"
+      [center]="center"
+      [zoom]="zoom">
+<!--          <map-advanced-marker-->
+<!--            *ngFor="let marker of markers"-->
+<!--            [position]="marker.position">-->
+<!--            <div>{{ marker.label }}</div>-->
+<!--          </map-advanced-marker>-->
+    </google-map>
+  </div>
+  <div class="my-3"></div>
+</div>

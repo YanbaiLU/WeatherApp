@@ -1,0 +1,16 @@
+.form-title {
+    text-align: center;
+}
+
+.pe-state {
+    padding-right: 30%;
+}
+
+.is-invalid {
+  border: 1px solid red;
+}
+
+.mat-option {
+  background-color: #FFFFFF;
+  color: red;
+}

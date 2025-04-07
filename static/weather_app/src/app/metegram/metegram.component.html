@@ -1,0 +1,45 @@
+<div class="container my-4">
+  <h3 class="text-center">Forecast at {{city}}, {{state}}</h3>
+
+  <div class="d-flex flex-column">
+    <div class="d-flex flex-row-reverse">
+      <i class="bi bi-chevron-right"></i>
+      <a class="link-underline-primary" style="color: inherit;" (click)="DetailsToDetail()">Details</a>
+      <i class="bi bi-star"></i>
+    </div>
+    <ul class="nav nav-tabs flex-row-reverse">
+      <li class="nav-item">
+        <a class="nav-link active"
+           routerLink="/result/metegram"
+           routerLinkActive="active"
+           [queryParams]="{lat: this.lat, lng: this.lng, city: this.city, state: this.state, detailStr: this.detailStr}"
+        >Meteogram</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/result/day-temp-chart"
+           routerLinkActive="active"
+           [queryParams]="{lat: this.lat, lng: this.lng, city: this.city, state: this.state, detailStr: this.detailStr}"
+        >Daily Temp. Chart</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/result/day-view"
+           routerLinkActive="active"
+           [queryParams]="{lat: this.lat, lng: this.lng, city: this.city, state: this.state}"
+        >Day view</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--<div class="metegram-container">{{lat}}, {{lng}}</div>-->
+<div id="highcharts1-container" class="container my-3">
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 100%; height: 100%; display: block;">
+  </highcharts-chart>
+</div>
